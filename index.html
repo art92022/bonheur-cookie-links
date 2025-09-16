@@ -66,10 +66,18 @@
       border-top: 1px solid rgba(255, 255, 255, 0.6);
     }
 
-    /* 保留桌機顏色 */
-    .website { color: #4B3621; }   /* 深咖啡 */
-    .line { color: #5B8C6A; }      /* 莫蘭迪綠 */
-    .facebook { color: #7089A6; }  /* 莫蘭迪藍 */
+    /* ===============================
+       統一電腦版與手機版字體顏色設定
+       =============================== */
+    .website { color: #4B3621 !important; }   /* 深咖啡 */
+    .line { color: #5B8C6A !important; }      /* 莫蘭迪綠 */
+    .facebook { color: #7089A6 !important; }  /* 莫蘭迪藍 */
+
+    @media (max-width: 768px) {
+      .website { color: #4B3621 !important; }
+      .line { color: #5B8C6A !important; }
+      .facebook { color: #7089A6 !important; }
+    }
   </style>
 
   <!-- Google Fonts -->

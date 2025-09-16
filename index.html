@@ -33,16 +33,16 @@
       padding: 30px 20px;
       border-radius: 18px;
 
-      background: rgba(255, 255, 255, 0.15); /* 桌機版透明度 */
+      background: rgba(255, 255, 255, 0.10); /* 桌機版透明度更低 */
       backdrop-filter: blur(16px) saturate(180%);
       -webkit-backdrop-filter: blur(16px) saturate(180%);
       box-shadow: 0 6px 26px rgba(0, 0, 0, 0.12);
     }
 
-    /* 手機版讓透明度更高，看清楚背景 */
+    /* 手機版讓透明度再降低 */
     @media (max-width: 768px) {
       .card {
-        background: rgba(255, 255, 255, 0.08); /* 手機版透明度更低 */
+        background: rgba(255, 255, 255, 0.05); /* 手機版更透 */
       }
     }
 
@@ -80,7 +80,7 @@
   </style>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 

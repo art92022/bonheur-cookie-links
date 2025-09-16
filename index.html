@@ -25,50 +25,68 @@
       }
     }
 
-    .logo {
-      margin-bottom: 60px;
-      max-width: 360px;  /* Logo 更大 */
-      width: 80%;
-      height: auto;
-    }
-
     .btn {
       display: block;
       width: 85%;
-      max-width: 400px;
-      margin: 20px 0;
-      padding: 20px;
+      max-width: 380px;
+      margin: 14px 0;        /* 手機版間距縮小 */
+      padding: 16px 20px;    /* 按鈕稍微瘦一點 */
       text-align: center;
-      border-radius: 20px;
-      font-size: 22px;
+      border-radius: 18px;
+      font-size: 20px;
       font-weight: 500;
       text-decoration: none;
-      letter-spacing: 1.5px;
+      letter-spacing: 1.2px;
 
-      /* 玻璃質感 */
+      /* 高雅玻璃質感 */
       background: rgba(255, 255, 255, 0.18);
       backdrop-filter: blur(14px) saturate(180%);
       -webkit-backdrop-filter: blur(14px) saturate(180%);
-      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 6px 26px rgba(0, 0, 0, 0.12);
 
       transition: transform 0.3s, background 0.3s;
     }
 
     .btn:hover {
-      transform: scale(1.06);
+      transform: scale(1.05);
       background: rgba(255, 255, 255, 0.28);
-      box-shadow: 0 10px 36px rgba(0, 0, 0, 0.18);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     }
 
-    /* 各平台文字顏色 */
+    /* 各平台文字顏色（莫蘭迪色系） */
     .website {
-  color: #5C4033;  /* 深咖啡棕，高雅苦甜可可色 */
-}
+      color: #4B3621;  /* 深咖啡棕 */
+    }
     .line {
-      color: #4CA873;  /* 莫蘭迪版 LINE 綠 */
+      color: #5B8C6A;  /* 莫蘭迪綠，保有 LINE 感 */
     }
     .facebook {
-      color: #6D8DA6;  /* 莫蘭迪藍 */
+      color: #7089A6;  /* 莫蘭迪藍 */
+    }
+
+    /* Logo 預設在底部 */
+    .logo {
+      margin-top: 40px;
+      max-width: 280px;
+      width: 60%;
+      height: auto;
+      opacity: 0.9;
+    }
+
+    /* 手機版再調整字體大小、Logo 底部位置 */
+    @media (max-width: 768px) {
+      .btn {
+        font-size: 18px;
+        margin: 10px 0;
+        padding: 14px 18px;
+      }
+
+      .logo {
+        margin-top: auto;      /* 推到最底 */
+        margin-bottom: 40px;
+        width: 70%;
+        max-width: 260px;
+      }
     }
   </style>
 
@@ -76,11 +94,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Logo 圖片 -->
-  <img src="logo.png" alt="Bonheur Cookie Logo" class="logo">
 
   <a href="https://www.bonheurcookie.com" class="btn website" target="_blank">進官網逛逛 探索甜點全系列</a>
   <a href="https://lin.ee/ivlTpL2" class="btn line" target="_blank">加入 LINE 會員 活動搶先看</a>
   <a href="https://www.facebook.com/BonheurCookie?ref=embed_page" class="btn facebook" target="_blank">FB 追蹤開單動態</a>
+
+  <!-- Logo 移到最底 -->
+  <img src="logo.png" alt="Bonheur Cookie Logo" class="logo">
+
 </body>
 </html>

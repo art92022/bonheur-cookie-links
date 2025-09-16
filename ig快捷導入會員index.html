@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bonheur Cookie Links</title>
+  <style>
+    body {
+      font-family: "Cormorant Garamond", "Noto Serif TC", serif; /* 優雅字體 */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+
+      background: url("１_ig快捷導入會員 電腦版.jpg") no-repeat center center;
+      background-size: cover;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        background: url("１_ig快捷導入會員 手機版.jpg") no-repeat center center;
+        background-size: cover;
+      }
+    }
+
+    .logo {
+      margin-bottom: 60px;
+      max-width: 360px;  /* Logo 更大 */
+      width: 80%;
+      height: auto;
+    }
+
+    .btn {
+      display: block;
+      width: 85%;
+      max-width: 400px;
+      margin: 20px 0;
+      padding: 20px;
+      text-align: center;
+      border-radius: 20px;
+      font-size: 22px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 1.5px;
+
+      /* 玻璃質感 */
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(14px) saturate(180%);
+      -webkit-backdrop-filter: blur(14px) saturate(180%);
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.06);
+      background: rgba(255, 255, 255, 0.28);
+      box-shadow: 0 10px 36px rgba(0, 0, 0, 0.18);
+    }
+
+    /* 各平台文字顏色 */
+    .website {
+  color: #5C4033;  /* 深咖啡棕，高雅苦甜可可色 */
+}
+    .line {
+      color: #4CA873;  /* 莫蘭迪版 LINE 綠 */
+    }
+    .facebook {
+      color: #6D8DA6;  /* 莫蘭迪藍 */
+    }
+  </style>
+
+  <!-- 引用 Google Font 高雅字體 -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Logo 圖片 -->
+  <img src="logo.png" alt="Bonheur Cookie Logo" class="logo">
+
+  <a href="https://www.bonheurcookie.com" class="btn website" target="_blank">進官網逛逛 探索甜點全系列</a>
+  <a href="https://lin.ee/ivlTpL2" class="btn line" target="_blank">加入 LINE 會員 活動搶先看</a>
+  <a href="https://www.facebook.com/BonheurCookie?ref=embed_page" class="btn facebook" target="_blank">FB 追蹤開單動態</a>
+</body>
+</html>

@@ -23,7 +23,7 @@
       }
     }
 
-    /* 手機版容器：玻璃質感方框 */
+    /* 容器：玻璃質感方框 */
     .card {
       display: flex;
       flex-direction: column;
@@ -33,10 +33,17 @@
       padding: 30px 20px;
       border-radius: 18px;
 
-      background: rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.15); /* 桌機版透明度 */
       backdrop-filter: blur(16px) saturate(180%);
       -webkit-backdrop-filter: blur(16px) saturate(180%);
       box-shadow: 0 6px 26px rgba(0, 0, 0, 0.12);
+    }
+
+    /* 手機版讓透明度更高，看清楚背景 */
+    @media (max-width: 768px) {
+      .card {
+        background: rgba(255, 255, 255, 0.08); /* 手機版透明度更低 */
+      }
     }
 
     .logo {
@@ -66,18 +73,10 @@
       border-top: 1px solid rgba(255, 255, 255, 0.6);
     }
 
-    /* ===============================
-       統一電腦版與手機版字體顏色設定
-       =============================== */
+    /* 統一顏色設定 (桌機 & 手機一致) */
     .website { color: #4B3621 !important; }   /* 深咖啡 */
     .line { color: #5B8C6A !important; }      /* 莫蘭迪綠 */
     .facebook { color: #7089A6 !important; }  /* 莫蘭迪藍 */
-
-    @media (max-width: 768px) {
-      .website { color: #4B3621 !important; }
-      .line { color: #5B8C6A !important; }
-      .facebook { color: #7089A6 !important; }
-    }
   </style>
 
   <!-- Google Fonts -->

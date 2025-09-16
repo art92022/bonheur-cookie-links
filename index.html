@@ -6,7 +6,7 @@
   <title>Bonheur Cookie Links</title>
   <style>
     body {
-      font-family: "Cormorant Garamond", "Noto Serif TC", serif;
+      font-family: "Noto Serif TC", serif; /* ✅ 統一字體 */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -33,17 +33,10 @@
       padding: 30px 20px;
       border-radius: 18px;
 
-      background: rgba(255, 255, 255, 0.10); /* 桌機版透明度更低 */
+      background: rgba(255, 255, 255, 0.10); /* 固定 10% 透明度 */
       backdrop-filter: blur(16px) saturate(180%);
       -webkit-backdrop-filter: blur(16px) saturate(180%);
       box-shadow: 0 6px 26px rgba(0, 0, 0, 0.12);
-    }
-
-    /* 手機版讓透明度再降低 */
-    @media (max-width: 768px) {
-      .card {
-        background: rgba(255, 255, 255, 0.05); /* 手機版更透 */
-      }
     }
 
     .logo {
@@ -73,14 +66,14 @@
       border-top: 1px solid rgba(255, 255, 255, 0.6);
     }
 
-    /* 統一顏色設定 (桌機 & 手機一致) */
+    /* 統一顏色設定 */
     .website { color: #4B3621 !important; }   /* 深咖啡 */
     .line { color: #5B8C6A !important; }      /* 莫蘭迪綠 */
     .facebook { color: #7089A6 !important; }  /* 莫蘭迪藍 */
   </style>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 

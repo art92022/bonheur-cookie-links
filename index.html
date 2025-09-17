@@ -23,21 +23,21 @@
       }
     }
 
-    /* 🎨 玻璃質感方塊 */
-    .card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 85%;
-      max-width: 380px;
-      padding: 30px 20px;
-      border-radius: 18px;
+    /* 🎨 玻璃質感方塊：桌機 & 手機統一 */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 85%;
+  max-width: 380px;
+  padding: 30px 20px;
+  border-radius: 18px;
 
-      background: rgba(255, 255, 255, 0.03); /* 透明度（調輕透感） */
-      backdrop-filter: blur(3px) saturate(50%); /* 模糊 + 飽和度 */
-      -webkit-backdrop-filter: blur(6px) saturate(90%);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-    }
+  background: rgba(255, 255, 255, 0.03); /* 透明度（調輕透感） */
+  backdrop-filter: blur(3px) saturate(50%); /* 模糊 + 飽和度 */
+  -webkit-backdrop-filter: blur(3px) saturate(50%);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
 
     @media (max-width: 768px) {
       .card {

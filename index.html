@@ -6,7 +6,7 @@
   <title>Bonheur Cookie Links</title>
   <style>
     body {
-      font-family: "Noto Serif TC", serif; /* ✅ 統一字體 */
+      font-family: "Noto Serif TC", serif;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -23,7 +23,7 @@
       }
     }
 
-    /* 容器：玻璃質感方框 */
+    /* 🎨 玻璃質感方塊 */
     .card {
       display: flex;
       flex-direction: column;
@@ -33,14 +33,12 @@
       padding: 30px 20px;
       border-radius: 18px;
 
-      /* 🎨 輕透玻璃質感 */
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px) saturate(160%);
+      background: rgba(255, 255, 255, 0.08); /* 透明度（調輕透感） */
+      backdrop-filter: blur(12px) saturate(160%); /* 模糊 + 飽和度 */
       -webkit-backdrop-filter: blur(12px) saturate(160%);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     }
 
-    /* ✅ 手機版再窄一點 */
     @media (max-width: 768px) {
       .card {
         width: 75%;
@@ -71,19 +69,18 @@
       transform: scale(1.05);
     }
 
-    /* 細白線分隔 */
+    /* 分隔線 */
     .link + .link {
       border-top: 1px solid rgba(255, 255, 255, 0.6);
     }
 
-    /* 統一顏色設定 */
+    /* 🎨 配色 */
     .website { color: #4B3621 !important; }   /* 深咖啡 */
     .line { color: #5B8C6A !important; }      /* 莫蘭迪綠 */
     .facebook { color: #7089A6 !important; }  /* 莫蘭迪藍 */
-    .career { color: #D08C60 !important; }    /* 莫蘭迪橘 */
+    .career { color: #A0522D !important; }    /* 深橘色 */
   </style>
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>

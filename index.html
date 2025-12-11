@@ -1,106 +1,416 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="zh-TW">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bonheur Cookie Links</title>
+  <title>Bonheur Cookie - 幸福送達</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
   <style>
+    /* --- 1. UI 風格設定 --- */
+    :root {
+      --bg-color: #F8F4F0;
+      /* 溫潤米色 */
+      --accent-color: #C39A6B;
+      /* 金棕色 */
+      --text-color: #5E5148;
+      /* 深褐灰 */
+      --warning-color: #C74838;
+      /* 警示紅 */
+      --card-bg: #FFFFFF;
+      /* 純白 */
+      --shadow: 0 4px 12px rgba(195, 154, 107, 0.1);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
     body {
-      font-family: "Noto Serif TC", serif;
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       display: flex;
       justify-content: center;
-      align-items: center;
       min-height: 100vh;
-      margin: 0;
-      background: url("1_2.jpg") no-repeat center center;
-      background-size: cover;
+      line-height: 1.75;
+      font-size: 14px;
+      letter-spacing: 0.05em;
     }
 
-    @media (max-width: 768px) {
-      body {
-        background: url("1_1.jpg") no-repeat center center;
-        background-size: cover;
-      }
-    }
-
- /* 🎨 玻璃質感方塊：桌機 & 手機統一 */
-.card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 85%;
-  max-width: 380px;
-  padding: 30px 20px;
-  border-radius: 18px;
-
-  background: rgba(255, 255, 255, 0.03); /* 透明度（輕透感） */
-  backdrop-filter: blur(6px) saturate(90%); 
-  -webkit-backdrop-filter: blur(6px) saturate(90%); /* ✅ iOS / Safari 相同效果 */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-}
-
-    @media (max-width: 768px) {
-      .card {
-        width: 75%;
-        max-width: 320px;
-        padding: 24px 16px;
-      }
-    }
-
-    .logo {
-      max-width: 200px;
-      width: 60%;
-      height: auto;
-      margin-bottom: 20px;
-    }
-
-    .link {
+    .container {
       width: 100%;
-      padding: 16px 0;
+      max-width: 460px;
+      padding: 50px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* --- Header (無Logo版) --- */
+    header {
       text-align: center;
-      font-size: 20px;
-      font-weight: 500;
+      margin-bottom: 35px;
+      width: 100%;
+      padding-top: 20px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      /* 完美比例 1.5rem，不換行 */
+      font-size: 1.5rem;
+      color: var(--text-color);
+      margin-bottom: 8px;
+      font-weight: 600;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .subtitle {
+      font-size: 0.85rem;
+      color: #8C7B70;
+      letter-spacing: 0.15em;
+      margin-top: 5px;
+    }
+
+    /* --- Links List --- */
+    #links-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 40px;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      background: var(--card-bg);
+      padding: 16px 20px;
+      border-radius: var(--radius);
       text-decoration: none;
-      letter-spacing: 1.2px;
+      color: var(--text-color);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+      border: 1px solid rgba(195, 154, 107, 0.15);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .link-card:active {
+      transform: scale(0.98);
+    }
+
+    .link-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(195, 154, 107, 0.15);
+    }
+
+    .link-icon {
+      font-size: 1.3rem;
+      margin-right: 16px;
+      width: 24px;
+      text-align: center;
+    }
+
+    .link-text {
+      font-weight: 500;
+      font-size: 1rem;
+      flex-grow: 1;
+    }
+
+    .link-arrow {
+      color: var(--accent-color);
+      font-size: 1.2rem;
+      opacity: 0.5;
+    }
+
+    /* --- FAQ Section --- */
+    #faq-section {
+      width: 100%;
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 10px 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid #EEE;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 18px 0;
+      text-align: left;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-color);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-question::after {
+      content: '+';
+      font-size: 1.4rem;
+      color: var(--accent-color);
+      font-weight: 300;
       transition: transform 0.3s;
     }
 
-    .link:hover {
-      transform: scale(1.05);
+    /* 內容區域 - 強制靠左對齊 */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease-out;
+      color: #6E645D;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      text-align: left;
+      /* 關鍵：文字靠左 */
     }
 
-    /* 分隔線 */
-    .link + .link {
-      border-top: 1px solid rgba(255, 255, 255, 0.6);
+    .answer-content {
+      padding: 5px 0 24px 0;
+      text-align: left;
     }
 
-    /* 🎨 配色 */
-    .website { color: #4B3621 !important; }   /* 深咖啡 */
-    .line { color: #5B8C6A !important; }      /* 莫蘭迪綠 */
-    .facebook { color: #7089A6 !important; }  /* 莫蘭迪藍 */
-    .career { color: #A0522D !important; }    /* 深橘色 */
+    .answer-content ul {
+      padding-left: 18px;
+      margin: 8px 0;
+    }
+
+    .answer-content li {
+      margin-bottom: 6px;
+    }
+
+    .highlight {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+
+    .warning {
+      color: var(--warning-color);
+      font-weight: 500;
+    }
+
+    .small {
+      font-size: 0.85rem;
+      color: #999;
+      display: block;
+      margin-top: 5px;
+    }
+
+    /* 展開狀態 */
+    .faq-item.active .faq-answer {
+      max-height: 900px;
+    }
+
+    .faq-item.active .faq-question::after {
+      content: '-';
+      transform: rotate(180deg);
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.75rem;
+      color: #B0A69E;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      letter-spacing: 1px;
+    }
   </style>
-
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-  <div class="card">
-    <img src="logo.png" alt="Bonheur Cookie Logo" class="logo">
+  <div class="container">
+    <header>
+      <h1>Bonheur Cookie</h1>
+      <p class="subtitle">BonheurCookie 幸福送達</p>
+    </header>
 
-    <a href="https://www.bonheurcookie.com" class="link website" target="_blank">
-      進官網逛逛 探索甜點全系列
-    </a>
-    <a href="https://lin.ee/ivlTpL2" class="link line" target="_blank">
-      加入 LINE 會員 活動搶先看
-    </a>
-    <a href="https://www.facebook.com/BonheurCookie?ref=embed_page" class="link facebook" target="_blank">
-      FB 追蹤開單動態
-    </a>
-    <a href="https://www.104.com.tw/job/76zku?jobsource=bappshare&utm_source=bapp" class="link career" target="_blank">
-      徵才資訊點我
-    </a>
+    <div id="links-list"></div>
+
+    <div id="faq-section"></div>
+
+    <footer>
+      &copy; 2025 Bonheur Cookie. All Rights Reserved.
+    </footer>
   </div>
 
+  <script>
+    const config = {
+      // 連結設定
+      links: [{
+          title: "官方網站 Website",
+          url: "https://www.bonheurcookie.com",
+          icon: "🌐"
+        },
+        {
+          title: "加入 LINE 官方帳號",
+          url: "https://lin.ee/BBVFTZQ",
+          icon: "💬"
+        },
+        {
+          title: "FB 追蹤開單動態",
+          url: "https://www.facebook.com/BonheurCookie?ref=embed_page",
+          icon: "📘"
+        },
+        {
+          title: "徵才資訊 Recruitment",
+          url: "https://www.104.com.tw/company/1a2x6blhwm#info06",
+          icon: "💼"
+        }
+      ],
+      // FAQ 設定 (食品優先 -> 運送 -> 付款 -> 工期)
+      faqs: [{
+          // 1. 保存方式 (最優先)
+          q: "Q1. 產品建議保存方式？",
+          a: `<ul>
+                          <li><strong>達克瓦茲 / 奶油餅 / 巧克力松露：</strong>冷凍保存 7-14 天</li>
+                          <li><strong>費南雪：</strong>常溫 5-7 天 / 冷凍 14 天</li>
+                          <li><strong>餅乾：</strong>常溫 7-14 天</li>
+                        </ul>`
+        },
+        {
+          // 2. 食用方式
+          q: "Q2. 產品建議食用方式？",
+          a: `<ul>
+                          <li><strong>達克瓦茲 / 奶油餅：</strong>夏天退冰 10-20 分鐘 / 冬天退冰 20-30 分鐘</li>
+                          <li><strong>巧克力松露：</strong>退冰 30 分鐘</li>
+                          <li><strong>費南雪：</strong>退冰 5-10 分鐘</li>
+                        </ul>
+                        <span class="warning">※若希望口感最穩定，請勿久放於高溫環境※</span>`
+        },
+        {
+          // 3. 運送方式
+          q: "Q3. 運送方式與運費？",
+          a: `<ul>
+                           <li>冷凍宅配：$190 (外島 $225)</li>
+                           <li>黑貓宅配週日無配送。</li>
+                           <li>商品寄出前一天會以簡訊通知。</li>
+                           <li><span class="warning">不提供面交</span></li>
+                        </ul>`
+        },
+        {
+          // 4. 連假配送 (補在這裡，緊接運送話題)
+          q: "Q4. 連假寄公司怕沒人收？",
+          a: `請放心，黑貓宅急便配合<strong>「國定連假」與「週日」皆暫停配送</strong>。<br>
+                        若您填寫公司地址，包裹將自動順延至<span class="highlight">正常上班日</span>投遞，不會在休假期間送達。`
+        },
+        {
+          // 5. 付款方式
+          q: "Q5. 付款方式有哪些？",
+          a: `信用卡 (VISA / Master / JCB)。<br><br>
+                        <ul>
+                           <li>刷卡服務 ⭕</li>
+                           <li><span class="warning">無貨到付款 ❌</span></li>
+                           <li><span class="warning">沒有其他付款方法了。</span></li>
+                           <li>如需統編：請於結帳頁面輸入。</li>
+                           <li><span class="warning">「不接受事後補打統編」</span></li>
+                        </ul>`
+        },
+        {
+          // 6. 製作工期
+          q: "Q6. 製作工期與急件？",
+          a: `<span class="highlight">我們堅持手工製作</span>，嚴選頂級食材，極致藝術值得等待。<br><br>
+                        <ul>
+                            <li><span class="warning">純手工製作，無法指定日期。</span></li>
+                            <li>無法延後或提早出貨，僅能盡力配合。</li>
+                            <li><span class="warning">無法配合者請勿下單。</span></li>
+                        </ul>`
+        },
+        {
+          // 7. 出貨順序
+          q: "Q7. 出貨順序問題？",
+          a: `出貨日會依下單順序與送出訂單秒差依序出貨。<br>
+                        <span class="small">※過年期間黑貓物流量大，包裹可能會延遲到貨※</span>`
+        },
+        {
+          // 8. 須知 (最後防線)
+          q: "⚠️ 訂購須知 (下單必讀)",
+          a: `<ul>
+                           <li>資訊不完整導致退回，來回運費需自行吸收。</li>
+                           <li>網站系統無法合併或拆單 (一單一地址)。</li>
+                           <li><span class="warning">無法取消或更改訂單內容。</span></li>
+                           <li>生鮮食品<strong>無 7 天鑑賞期</strong>。</li>
+                           <li><strong>請於開箱時錄影</strong>，保障雙方權益。</li>
+                           <li>本商品不提供紙袋。</li>
+                        </ul>`
+        },
+        {
+          // 9. 查詢
+          q: "➜ 訂單進度查詢",
+          a: `如需宅配單號，請於 <span class="highlight">寄出日當天 15:00 後</span> 到訂單內查詢。<br>
+                        有任何問題請至訂單頁面詢問我們，謝謝。`
+        }
+      ]
+    };
+    // 程式渲染區
+    const linksContainer = document.getElementById('links-list');
+    config.links.forEach(link => {
+      const card = document.createElement('a');
+      card.className = 'link-card';
+      card.href = link.url;
+      card.target = '_blank';
+      card.innerHTML = `
+                <div class="link-icon">${link.icon}</div>
+                <div class="link-text">${link.title}</div>
+                <div class="link-arrow">➜</div>
+            `;
+      linksContainer.appendChild(card);
+    });
+    const faqContainer = document.getElementById('faq-section');
+    config.faqs.forEach(item => {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'faq-item';
+      wrapper.innerHTML = `
+                <button class="faq-question">${item.q}</button>
+                <div class="faq-answer">
+                    <div class="answer-content">${item.a}</div>
+                </div>
+            `;
+      faqContainer.appendChild(wrapper);
+    });
+    const questions = document.querySelectorAll('.faq-question');
+    questions.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        // 自動關閉其他
+        document.querySelectorAll('.faq-item').forEach(i => {
+          if (i !== item) i.classList.remove('active');
+        });
+        item.classList.toggle('active');
+      });
+    });
+  </script>
 </body>
+
 </html>
